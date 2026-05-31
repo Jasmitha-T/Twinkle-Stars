@@ -1,0 +1,62 @@
+:root {
+  /* Logo-inspired cosmic palette */
+  --color-space-deep: #060818;
+  --color-space-mid: #0d1230;
+  --color-space-light: #1a1f4a;
+  --color-purple-soft: #7c3aed;
+  --color-purple-glow: #a855f7;
+  --color-magenta: #ec4899;
+  --color-pink-accent: #f472b6;
+  --color-gold: #fbbf24;
+  --color-gold-bright: #fde047;
+  --color-cyan: #22d3ee;
+  --color-blue-glow: #38bdf8;
+  --color-white: #ffffff;
+  --color-text: #f0f4ff;
+  --color-text-muted: #b8c4e8;
+  --color-text-dark: #0f172a;
+
+  /* Gradients — logo yellow / purple / magenta / cyan */
+  --gradient-cosmic: linear-gradient(135deg, #060818 0%, #1e1052 45%, #4c1d95 100%);
+  --gradient-hero: linear-gradient(165deg, rgba(6, 8, 24, 0.88) 0%, rgba(76, 29, 149, 0.75) 55%, rgba(236, 72, 153, 0.25) 100%);
+  --gradient-card: linear-gradient(145deg, rgba(26, 31, 74, 0.95) 0%, rgba(13, 18, 48, 0.98) 100%);
+  --gradient-gold: linear-gradient(135deg, #fde047 0%, #fbbf24 50%, #f59e0b 100%);
+  --gradient-button: linear-gradient(135deg, #7c3aed 0%, #ec4899 50%, #fbbf24 100%);
+  --gradient-ring: linear-gradient(135deg, #22d3ee, #a855f7, #ec4899);
+
+  /* Typography — playful cosmic */
+  --font-heading: 'Baloo 2', 'Fredoka', cursive, sans-serif;
+  --font-body: 'Quicksand', 'Nunito', sans-serif;
+  --font-accent: 'Comfortaa', cursive, sans-serif;
+
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+
+  --max-width: 1200px;
+  --header-height: 88px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 32px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 6px 28px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 12px 48px rgba(124, 58, 237, 0.35);
+  --shadow-glow: 0 0 40px rgba(251, 191, 36, 0.45);
+
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.6s ease;
+
+  --z-celestial: 1;
+  --z-header: 100;
+  --z-modal: 200;
+  --z-toast: 300;
+}

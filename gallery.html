@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gallery - Moments of joy and learning at Twinkle Stars Kindergarten">
+  <title>Gallery | Twinkle Stars Kindergarten</title>
+  <link rel="icon" href="assets/images/logo.png" type="image/png">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/cosmic.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <div class="starfield" id="starfield" aria-hidden="true"></div>
+  <div class="celestial-layer" id="celestial-layer" aria-hidden="true"></div>
+  <div id="announcement-container"></div>
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo"><img src="assets/images/logo.png" alt="Twinkle Stars" class="logo-img" width="52" height="52"><span class="logo-text">Twinkle Stars</span></a>
+      <nav class="main-nav" id="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="programs.html">Our Programs</a></li>
+          <li><a href="daily-adventures.html">Daily Adventures</a></li><li><a href="daycare.html">Daycare</a></li>
+          <li><a href="gallery.html" class="active">Gallery</a></li><li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button class="btn btn-primary btn-sm" id="join-galaxy-btn" type="button">Join Our Galaxy ✨</button>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="section-label">Gallery</span>
+        <h1>Cosmic <span class="text-gradient">Moments</span></h1>
+        <p>Glimpses of joy, learning, and adventure at Twinkle Stars</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="gallery-grid" id="gallery-full" data-content="gallery"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-logo-wrap">
+        <img src="assets/images/logo.png" alt="Twinkle Stars" class="footer-logo" width="72" height="72">
+        <p class="footer-slogan" data-setting="slogan">Knowledge is Power</p>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 Twinkle Stars Kindergarten.</p></div>
+    </div>
+  </footer>
+
+  <div class="modal-overlay" id="admission-modal" role="dialog" aria-modal="true">
+    <div class="modal">
+      <div class="modal-header"><h2>Join Our Galaxy ✨</h2><button class="modal-close" id="modal-close">&times;</button></div>
+      <div class="modal-body">
+        <form id="admission-form" novalidate>
+          <div class="form-row"><div class="form-group"><label for="child_name">Child's Name <span class="required">*</span></label><input type="text" id="child_name" name="child_name" required></div><div class="form-group"><label for="age">Age <span class="required">*</span></label><input type="text" id="age" name="age" required></div></div>
+          <div class="form-group"><label for="program">Program <span class="required">*</span></label><select id="program" name="program" required><option value="">Select</option><option value="Little Comets">Little Comets</option><option value="Bright Stars">Bright Stars</option><option value="SuperNovas">SuperNovas</option><option value="Daycare">Daycare</option></select></div>
+          <div class="form-row"><div class="form-group"><label for="parent_name">Parent/Guardian <span class="required">*</span></label><input type="text" id="parent_name" name="parent_name" required></div><div class="form-group"><label for="phone">Phone <span class="required">*</span></label><input type="tel" id="phone" name="phone" required></div></div>
+          <div class="form-group"><label for="email">Email <span class="required">*</span></label><input type="email" id="email" name="email" required></div>
+          <div class="form-group"><label for="start_date">Start Date</label><input type="date" id="start_date" name="start_date"></div>
+          <div class="form-group"><label for="message">Message</label><textarea id="message" name="message" rows="3"></textarea></div>
+          <button type="submit" class="btn btn-primary" style="width:100%;">Submit Application 🚀</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="toast-container" id="toast-container"></div>
+  <script src="js/api-client.js"></script><script src="js/main.js"></script><script src="js/admission-form.js"></script><script src="js/content-loader.js"></script>
+</body>
+</html>

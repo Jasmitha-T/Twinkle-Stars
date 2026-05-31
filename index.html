@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Twinkle Stars Kindergarten - Knowledge is Power. Preschool, daycare, and nurturing early education.">
+  <title>Twinkle Stars Kindergarten | Knowledge is Power</title>
+  <link rel="icon" href="assets/images/logo.png" type="image/png">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/cosmic.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <div class="starfield" id="starfield" aria-hidden="true"></div>
+  <div class="celestial-layer" id="celestial-layer" aria-hidden="true"></div>
+
+  <div id="announcement-container"></div>
+
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.png" alt="Twinkle Stars Kindergarten" class="logo-img" width="52" height="52">
+        <span class="logo-text">Twinkle Stars</span>
+      </a>
+      <nav class="main-nav" id="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="programs.html">Our Programs</a></li>
+          <li><a href="daily-adventures.html">Daily Adventures</a></li>
+          <li><a href="daycare.html">Daycare</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button class="btn btn-primary btn-sm" id="join-galaxy-btn" type="button">Join Our Galaxy ✨</button>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-overlay"></div>
+      <div class="cosmic-orb cosmic-orb--purple" style="top: 10%; left: 5%;"></div>
+      <div class="cosmic-orb cosmic-orb--pink" style="bottom: 20%; right: 10%;"></div>
+      <div class="container hero-layout">
+        <div class="hero-content">
+          <div class="hero-badge"><span class="sparkle">✦</span> Welcome to Our Galaxy</div>
+          <h1>Twinkle <span class="text-gradient">Stars</span> Kindergarten</h1>
+          <p class="hero-tagline slogan-banner" data-setting="slogan">Knowledge is Power</p>
+          <p style="color: var(--color-text-muted); margin-bottom: var(--space-xl);">A cosmic journey of learning, play, and discovery for your little ones — where every child finds their spark!</p>
+          <div class="hero-actions">
+            <button class="btn btn-gold btn-lg" id="join-galaxy-hero" type="button">Join Our Galaxy ✨</button>
+            <a href="programs.html" class="btn btn-secondary btn-lg">Explore Programs</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="https://img.icons8.com/3d-fluency/300/rocket.png" alt="Rocket" class="hero-rocket-only" width="300" height="300">
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission Quote -->
+    <section class="section">
+      <div class="container">
+        <div class="quote-block">
+          <p class="quote-text" data-setting="slogan">Knowledge is Power</p>
+          <p class="quote-author">— Twinkle Stars Slogan</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Programs Preview -->
+    <section class="section" style="background: var(--color-space-mid);">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Our Programs</span>
+          <h2 class="section-title">Preschool <span class="text-gradient-cosmic">Galaxy</span></h2>
+          <p class="section-subtitle">Age-appropriate programs designed to help every child shine at their own pace.</p>
+        </div>
+        <div class="card-grid" id="programs-preview" data-content="programs">
+          <!-- Loaded dynamically or fallback -->
+        </div>
+        <div style="text-align: center; margin-top: var(--space-2xl);">
+          <a href="programs.html" class="btn btn-primary">View All Programs</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Daily Adventures Preview -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Daily Adventures</span>
+          <h2 class="section-title">A Day at <span class="text-gradient">Twinkle Stars</span></h2>
+        </div>
+        <div id="schedule-preview" data-content="schedule"></div>
+        <div class="timing-grid" id="timings-preview" data-content="timings">
+          <!-- Loaded dynamically -->
+        </div>
+        <div style="text-align: center; margin-top: var(--space-2xl);">
+          <a href="daily-adventures.html" class="btn btn-secondary">See Full Schedule</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Daycare Preview -->
+    <section class="section" style="background: var(--color-space-mid);">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Twinkle Stars Daycare</span>
+          <h2 class="section-title">Where Every Child Finds a <span class="text-gradient">SPARK</span></h2>
+          <p class="section-subtitle">Safe, nurturing full-day care with world-class facilities for your little stars.</p>
+        </div>
+        <div class="facility-grid" id="daycare-preview" data-content="daycare-facilities">
+          <!-- Loaded dynamically -->
+        </div>
+        <div style="text-align: center; margin-top: var(--space-2xl);">
+          <a href="daycare.html" class="btn btn-primary">Explore Daycare</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+      <div class="container">
+        <div class="quote-block" style="background: var(--gradient-button); border: none;">
+          <h2 style="color: white; margin-bottom: var(--space-md);">Ready to Join Our Galaxy?</h2>
+          <p style="color: rgba(255,255,255,0.9); margin-bottom: var(--space-xl);">Give your child the gift of a cosmic learning adventure. Enroll today!</p>
+          <button class="btn btn-gold btn-lg" id="join-galaxy-cta" type="button">Join Our Galaxy ✨</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img src="assets/images/logo.png" alt="Twinkle Stars" class="logo-img" width="48" height="48">
+            <span class="logo-text">Twinkle Stars</span>
+          </a>
+          <p data-setting="slogan">Knowledge is Power</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="programs.html">Our Programs</a></li>
+            <li><a href="daily-adventures.html">Daily Adventures</a></li>
+            <li><a href="daycare.html">Daycare</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul id="footer-contact">
+            <li><a href="tel:+911234567890" data-setting="phone">+91 12345 67890</a></li>
+            <li><a href="mailto:info@twinklestars.com" data-setting="email">info@twinklestars.com</a></li>
+            <li><span data-setting="address">123 Starlight Avenue, Galaxy City</span></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Hours</h4>
+          <ul>
+            <li>School: <span data-setting="school_hours">9:30 AM – 12:30 PM</span></li>
+            <li>Daycare: <span data-setting="daycare_hours">8:00 AM – 8:00 PM</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-logo-wrap">
+        <img src="assets/images/logo.png" alt="Twinkle Stars Kindergarten" class="footer-logo" width="72" height="72">
+        <p class="footer-slogan" data-setting="slogan">Knowledge is Power</p>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Twinkle Stars Kindergarten. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Admission Modal -->
+  <div class="modal-overlay" id="admission-modal" role="dialog" aria-labelledby="modal-title" aria-modal="true">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="modal-title">Join Our Galaxy ✨</h2>
+        <button class="modal-close" id="modal-close" aria-label="Close form">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="admission-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="child_name">Child's Name <span class="required">*</span></label>
+              <input type="text" id="child_name" name="child_name" required placeholder="Little star's name">
+            </div>
+            <div class="form-group">
+              <label for="age">Age <span class="required">*</span></label>
+              <input type="text" id="age" name="age" required placeholder="e.g. 2.5 years">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="program">Program Interest <span class="required">*</span></label>
+            <select id="program" name="program" required>
+              <option value="">Select a program</option>
+              <option value="Little Comets">Little Comets (PreKG 1.5–2 yrs)</option>
+              <option value="Bright Stars">Bright Stars (LKG 2.5–3.5 yrs)</option>
+              <option value="SuperNovas">SuperNovas (UKG 3.5–5 yrs)</option>
+              <option value="Daycare">Daycare</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="parent_name">Parent/Guardian <span class="required">*</span></label>
+              <input type="text" id="parent_name" name="parent_name" required placeholder="Your name">
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone <span class="required">*</span></label>
+              <input type="tel" id="phone" name="phone" required placeholder="+91 XXXXX XXXXX">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email <span class="required">*</span></label>
+            <input type="email" id="email" name="email" required placeholder="your@email.com">
+          </div>
+          <div class="form-group">
+            <label for="start_date">Preferred Start Date</label>
+            <input type="date" id="start_date" name="start_date">
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="3" placeholder="Tell us about your little star..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Application 🚀</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toast-container"></div>
+
+  <script src="js/api-client.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/admission-form.js"></script>
+  <script src="js/content-loader.js"></script>
+</body>
+</html>

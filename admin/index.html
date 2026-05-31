@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin | Twinkle Stars Kindergarten</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⭐</text></svg>">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body class="admin-body">
+  <!-- Login Screen -->
+  <div id="login-screen" class="admin-login">
+    <div class="admin-login-card">
+      <h2 style="text-align:center; margin-bottom: var(--space-sm);">⭐ Twinkle Stars</h2>
+      <p style="text-align:center; color: var(--color-text-muted); margin-bottom: var(--space-xl);">Admin Dashboard</p>
+      <div id="demo-banner-login" class="demo-banner" style="display:none;">Demo mode — password: admin123</div>
+      <form id="login-form">
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required placeholder="Enter admin password">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Login</button>
+      </form>
+      <p id="login-error" style="color: var(--color-pink-accent); margin-top: var(--space-md); display:none;"></p>
+    </div>
+  </div>
+
+  <!-- Dashboard -->
+  <div id="dashboard" style="display:none;">
+    <div class="admin-layout">
+      <aside class="admin-sidebar">
+        <h2>⭐ Admin</h2>
+        <nav class="admin-nav" id="admin-nav">
+          <button data-panel="overview" class="active">Overview</button>
+          <button data-panel="admissions">Admissions</button>
+          <button data-panel="programs">Programs</button>
+          <button data-panel="schedule">Schedule</button>
+          <button data-panel="daycare">Daycare</button>
+          <button data-panel="gallery">Gallery</button>
+          <button data-panel="announcements">Announcements</button>
+          <button data-panel="settings">Settings</button>
+        </nav>
+        <div style="margin-top: var(--space-2xl);">
+          <a href="../index.html" class="btn btn-secondary btn-sm" style="width:100%; margin-bottom: var(--space-sm);">View Site</a>
+          <button id="logout-btn" class="btn btn-sm" style="width:100%; color: var(--color-pink-accent);">Logout</button>
+        </div>
+      </aside>
+
+      <main class="admin-main">
+        <div id="demo-banner" class="demo-banner" style="display:none;">Demo mode — data stored in localStorage</div>
+
+        <!-- Overview -->
+        <div id="panel-overview" class="admin-panel active">
+          <div class="admin-header"><h1>Dashboard Overview</h1></div>
+          <div class="admin-stats" id="stats-grid"></div>
+          <p style="color: var(--color-text-muted);">Welcome to Twinkle Stars admin. Manage admissions, content, and site settings from the sidebar.</p>
+        </div>
+
+        <!-- Admissions -->
+        <div id="panel-admissions" class="admin-panel">
+          <div class="admin-header"><h1>Admission Inquiries</h1></div>
+          <div class="admin-table-wrap">
+            <table class="admin-table">
+              <thead>
+                <tr><th>Date</th><th>Child</th><th>Program</th><th>Parent</th><th>Phone</th><th>Status</th><th>Actions</th></tr>
+              </thead>
+              <tbody id="admissions-table"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Programs -->
+        <div id="panel-programs" class="admin-panel">
+          <div class="admin-header"><h1>Programs</h1><button class="btn btn-primary btn-sm" id="add-program">+ Add Program</button></div>
+          <div class="admin-form-card" id="program-form-card" style="display:none;">
+            <h3 id="program-form-title">Add Program</h3>
+            <form id="program-form">
+              <input type="hidden" id="program-id">
+              <div class="form-group"><label>Name</label><input type="text" id="program-name" required></div>
+              <div class="form-row"><div class="form-group"><label>Slug</label><input type="text" id="program-slug" required></div><div class="form-group"><label>Icon</label><input type="text" id="program-icon" placeholder="⭐"></div></div>
+              <div class="form-group"><label>Age Range</label><input type="text" id="program-age" required></div>
+              <div class="form-group"><label>Description</label><textarea id="program-desc" rows="3"></textarea></div>
+              <div class="form-group"><label>Sort Order</label><input type="number" id="program-order" value="0"></div>
+              <button type="submit" class="btn btn-primary btn-sm">Save</button>
+              <button type="button" class="btn btn-secondary btn-sm" id="cancel-program">Cancel</button>
+            </form>
+          </div>
+          <div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>Icon</th><th>Name</th><th>Age</th><th>Order</th><th>Actions</th></tr></thead><tbody id="programs-table"></tbody></table></div>
+        </div>
+
+        <!-- Schedule -->
+        <div id="panel-schedule" class="admin-panel">
+          <div class="admin-header"><h1>Daily Schedule</h1><button class="btn btn-primary btn-sm" id="add-schedule">+ Add Item</button></div>
+          <div class="admin-form-card" id="schedule-form-card" style="display:none;">
+            <h3 id="schedule-form-title">Add Schedule Item</h3>
+            <form id="schedule-form">
+              <input type="hidden" id="schedule-id">
+              <div class="form-group"><label>Title</label><input type="text" id="schedule-title" required></div>
+              <div class="form-group"><label>Description</label><textarea id="schedule-desc" rows="2"></textarea></div>
+              <div class="form-group"><label>Sort Order</label><input type="number" id="schedule-order" value="0"></div>
+              <button type="submit" class="btn btn-primary btn-sm">Save</button>
+              <button type="button" class="btn btn-secondary btn-sm" id="cancel-schedule">Cancel</button>
+            </form>
+          </div>
+          <div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>#</th><th>Title</th><th>Description</th><th>Actions</th></tr></thead><tbody id="schedule-table"></tbody></table></div>
+        </div>
+
+        <!-- Daycare -->
+        <div id="panel-daycare" class="admin-panel">
+          <div class="admin-header"><h1>Daycare Facilities</h1><button class="btn btn-primary btn-sm" id="add-daycare">+ Add Facility</button></div>
+          <div class="admin-form-card" id="daycare-form-card" style="display:none;">
+            <h3 id="daycare-form-title">Add Facility</h3>
+            <form id="daycare-form">
+              <input type="hidden" id="daycare-id">
+              <div class="form-group"><label>Title</label><input type="text" id="daycare-title" required></div>
+              <div class="form-group"><label>Description</label><textarea id="daycare-desc" rows="2"></textarea></div>
+              <div class="form-group"><label>Sort Order</label><input type="number" id="daycare-order" value="0"></div>
+              <button type="submit" class="btn btn-primary btn-sm">Save</button>
+              <button type="button" class="btn btn-secondary btn-sm" id="cancel-daycare">Cancel</button>
+            </form>
+          </div>
+          <div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>Title</th><th>Description</th><th>Actions</th></tr></thead><tbody id="daycare-table"></tbody></table></div>
+        </div>
+
+        <!-- Gallery -->
+        <div id="panel-gallery" class="admin-panel">
+          <div class="admin-header"><h1>Gallery</h1><button class="btn btn-primary btn-sm" id="add-gallery">+ Add Image</button></div>
+          <div class="admin-form-card" id="gallery-form-card" style="display:none;">
+            <h3 id="gallery-form-title">Add Image</h3>
+            <form id="gallery-form">
+              <input type="hidden" id="gallery-id">
+              <div class="form-group"><label>Image URL</label><input type="url" id="gallery-url" required placeholder="https://..."></div>
+              <div class="form-group"><label>Caption</label><input type="text" id="gallery-caption"></div>
+              <div class="form-group"><label>Sort Order</label><input type="number" id="gallery-order" value="0"></div>
+              <button type="submit" class="btn btn-primary btn-sm">Save</button>
+              <button type="button" class="btn btn-secondary btn-sm" id="cancel-gallery">Cancel</button>
+            </form>
+          </div>
+          <div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>Preview</th><th>Caption</th><th>Actions</th></tr></thead><tbody id="gallery-table"></tbody></table></div>
+        </div>
+
+        <!-- Announcements -->
+        <div id="panel-announcements" class="admin-panel">
+          <div class="admin-header"><h1>Announcements</h1><button class="btn btn-primary btn-sm" id="add-announcement">+ Add</button></div>
+          <div class="admin-form-card" id="announcement-form-card" style="display:none;">
+            <h3 id="announcement-form-title">Add Announcement</h3>
+            <form id="announcement-form">
+              <input type="hidden" id="announcement-id">
+              <div class="form-group"><label>Title</label><input type="text" id="announcement-title" required></div>
+              <div class="form-group"><label>Body</label><textarea id="announcement-body" rows="2"></textarea></div>
+              <div class="form-group"><label><input type="checkbox" id="announcement-active"> Active (show on site)</label></div>
+              <button type="submit" class="btn btn-primary btn-sm">Save</button>
+              <button type="button" class="btn btn-secondary btn-sm" id="cancel-announcement">Cancel</button>
+            </form>
+          </div>
+          <div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>Title</th><th>Active</th><th>Actions</th></tr></thead><tbody id="announcements-table"></tbody></table></div>
+        </div>
+
+        <!-- Settings -->
+        <div id="panel-settings" class="admin-panel">
+          <div class="admin-header"><h1>Site Settings</h1></div>
+          <div class="admin-form-card">
+            <form id="settings-form">
+              <div class="form-group"><label>Hero Tagline</label><input type="text" id="set-hero-tagline"></div>
+              <div class="form-group"><label>Mission Quote</label><input type="text" id="set-mission-quote"></div>
+              <div class="form-group"><label>Daycare Quote</label><input type="text" id="set-daycare-quote"></div>
+              <div class="form-row"><div class="form-group"><label>Phone</label><input type="text" id="set-phone"></div><div class="form-group"><label>Email</label><input type="email" id="set-email"></div></div>
+              <div class="form-group"><label>Address</label><input type="text" id="set-address"></div>
+              <div class="form-row"><div class="form-group"><label>School Hours</label><input type="text" id="set-school-hours"></div><div class="form-group"><label>Daycare Hours</label><input type="text" id="set-daycare-hours"></div></div>
+              <button type="submit" class="btn btn-primary">Save Settings</button>
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toast-container"></div>
+
+  <script src="../js/api-client.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/admin/admin.js"></script>
+</body>
+</html>

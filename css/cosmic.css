@@ -1,0 +1,146 @@
+/* Starfield */
+.starfield {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  background: var(--color-white);
+  border-radius: 50%;
+  animation: twinkle var(--duration, 3s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+  opacity: var(--opacity, 0.6);
+}
+
+.star--sm { width: 2px; height: 2px; }
+.star--md { width: 3px; height: 3px; }
+.star--lg { width: 4px; height: 4px; box-shadow: 0 0 8px rgba(255, 255, 255, 0.9); }
+
+@keyframes twinkle {
+  0%, 100% { opacity: var(--opacity, 0.6); transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.4); }
+}
+
+/* Hanging celestial bodies */
+.celestial-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: var(--z-celestial);
+  overflow: hidden;
+}
+
+.celestial-body {
+  position: absolute;
+  animation: celestialFloat var(--float-dur, 6s) ease-in-out infinite;
+  animation-delay: var(--float-delay, 0s);
+  filter: drop-shadow(0 0 12px rgba(251, 191, 36, 0.35));
+}
+
+.celestial-body--planet {
+  border-radius: 50%;
+  background: var(--planet-bg, radial-gradient(circle at 30% 30%, #fde047, #f59e0b 40%, #7c3aed 100%));
+}
+
+.celestial-body--moon {
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #f8fafc, #cbd5e1 60%, #94a3b8);
+  box-shadow: inset -4px -4px 8px rgba(0,0,0,0.2);
+}
+
+.celestial-body--ring {
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: rgba(34, 211, 238, 0.6);
+  border-right-color: rgba(236, 72, 153, 0.5);
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.3) 0%, transparent 70%);
+}
+
+.celestial-body--star-shape {
+  font-size: var(--star-size, 1.5rem);
+  color: var(--color-gold-bright);
+  text-shadow: 0 0 15px rgba(251, 191, 36, 0.8);
+  animation: celestialFloat var(--float-dur, 5s) ease-in-out infinite, sparkle 2s ease-in-out infinite;
+}
+
+@keyframes celestialFloat {
+  0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)); }
+  50% { transform: translateY(-18px) rotate(calc(var(--rot, 0deg) + 8deg)); }
+}
+
+.cosmic-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  pointer-events: none;
+  opacity: 0.4;
+  animation: float 10s ease-in-out infinite;
+}
+
+.cosmic-orb--purple { background: var(--color-purple-glow); width: 320px; height: 320px; }
+.cosmic-orb--pink { background: var(--color-magenta); width: 220px; height: 220px; animation-delay: -3s; }
+.cosmic-orb--cyan { background: var(--color-cyan); width: 280px; height: 280px; animation-delay: -5s; }
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(25px, -35px) scale(1.05); }
+  66% { transform: translate(-20px, 25px) scale(0.95); }
+}
+
+.sparkle {
+  display: inline-block;
+  color: var(--color-gold-bright);
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 1; transform: rotate(0deg) scale(1); }
+  50% { opacity: 0.75; transform: rotate(20deg) scale(1.15); }
+}
+
+.text-gradient {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-cosmic {
+  background: linear-gradient(135deg, var(--color-cyan), var(--color-purple-glow), var(--color-magenta), var(--color-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cosmic-divider {
+  width: 90px;
+  height: 4px;
+  background: var(--gradient-button);
+  border-radius: var(--radius-full);
+  margin: var(--space-md) auto;
+  box-shadow: 0 0 12px rgba(236, 72, 153, 0.5);
+}
+
+.shooting-star {
+  position: absolute;
+  width: 120px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-gold-bright), transparent);
+  animation: shoot 5s ease-in-out infinite;
+  opacity: 0;
+}
+
+@keyframes shoot {
+  0% { transform: translateX(-120px); opacity: 0; }
+  8% { opacity: 1; }
+  25% { transform: translateX(calc(100vw + 120px)) translateY(80px); opacity: 0; }
+  100% { opacity: 0; }
+}
+
+@media (max-width: 768px) {
+  .celestial-body { opacity: 0.55; transform: scale(0.7); }
+}

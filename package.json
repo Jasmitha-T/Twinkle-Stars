@@ -1,0 +1,16 @@
+{
+  "name": "twinkle-stars-kindergarten",
+  "version": "1.0.0",
+  "description": "Twinkle Stars Kindergarten website with admin CMS",
+  "type": "module",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+  "dependencies": {
+    "@vercel/postgres": "^0.10.0"
+  },
+  "devDependencies": {
+    "vercel": "^39.0.0"
+  }
+}
